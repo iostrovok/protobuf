@@ -2217,6 +2217,9 @@ func (g *Generator) generateMessage(message *Descriptor) {
 		// TODO: This allocation occurs based on the order of the fields
 		// in the proto file, meaning that a change in the field
 		// ordering can change generated Method/Field names.
+
+		fmt.Printf("i: %d, field: %+v\n", i, field)
+
 		base := CamelCase(*field.Name)
 		ns := allocNames(base, "Get"+base)
 		fieldName, fieldGetterName := ns[0], ns[1]
